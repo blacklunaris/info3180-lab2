@@ -4,7 +4,7 @@ Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
 Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
-
+from datetime import date
 from app import app
 from flask import render_template, request, redirect, url_for, flash
 
@@ -17,7 +17,9 @@ from flask import render_template, request, redirect, url_for, flash
 def home():
     """Render website's home page."""
     return render_template('home.html')
-
+@app.route('/profile')
+def profile():
+    return render_template('profile.html',)
 
 @app.route('/about/')
 def about():
@@ -47,12 +49,14 @@ def add_header(response):
     response.headers['Cache-Control'] = 'public, max-age=0'
     return response
 
-
+url_for('/app/static/young god.jpg')
 @app.errorhandler(404)
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
 
-
+def format_date_joined(date):
+    
+    return date
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="8080")
