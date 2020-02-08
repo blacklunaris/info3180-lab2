@@ -49,12 +49,17 @@ def add_header(response):
     response.headers['Cache-Control'] = 'public, max-age=0'
     return response
 
-url_for('/app/static/young god.jpg')
+
 @app.errorhandler(404)
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
 
-
+def format_date_joined():
+    datetime_str = time.mktime(datetime_str) 
+      
+    format = "%b %d %Y %r" # The format 
+    dateTime = time.strftime(format, time.gmtime(datetime_str)) 
+    return dateTime 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="8080")
