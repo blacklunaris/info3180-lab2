@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% block header %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +15,9 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
-    {% block css %} {% endblock%}
+    {% block css %} 
+    {% endblock%}
+    {% endblock %}
   </head>
   <body>
     <header>
@@ -22,7 +25,8 @@
     </header>
     <main>
         <div class="container">
-            {% block main %}{% endblock %}
+            {% block main %}
+            {% endblock %}
         </div>
     </main>
     <footer>
